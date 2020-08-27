@@ -1,7 +1,7 @@
 require 'base64'
 
 module Encryption
-  class KmsClient
+  class KmsClient # rubocop:disable Metrics/ClassLength
     include Encodable
 
     KEY_TYPE = {

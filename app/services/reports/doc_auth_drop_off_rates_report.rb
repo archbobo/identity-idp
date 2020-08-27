@@ -1,5 +1,6 @@
 require 'login_gov/hostdata'
 
+# rubocop:disable Metrics/ClassLength
 module Reports
   class DocAuthDropOffRatesReport < BaseReport
     REPORT_NAME = 'doc-auth-drop-off-rates-report'.freeze
@@ -121,3 +122,4 @@ module Reports
     end
   end
 end
+# rubocop:enable Metrics/ClassLength

@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ClassLength
 class OpenidConnectAuthorizeForm
   include ActiveModel::Model
   include ActionView::Helpers::TranslationHelper
@@ -216,3 +217,4 @@ class OpenidConnectAuthorizeForm
     errors.add(:acr_values, t('openid_connect.authorization.errors.liveness_checking_disabled'))
   end
 end
+# rubocop:enable Metrics/ClassLength

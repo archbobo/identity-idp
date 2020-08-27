@@ -3,10 +3,6 @@ import 'classlist.js';
 const { I18n } = window.LoginGov;
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (document.body.classList.contains('js-skip-form-validation')) {
-    return;
-  }
-
   const forms = document.querySelectorAll('form');
 
   function addListenerMulti(el, events, fn) {

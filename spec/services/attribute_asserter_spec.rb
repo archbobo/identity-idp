@@ -5,7 +5,6 @@ describe AttributeAsserter do
 
   let(:ial1_user) { create(:user, :signed_up) }
   let(:user) { create(:profile, :active, :verified).user }
-  let(:user_session) { {} }
   let(:identity) do
     build(
       :identity,
@@ -51,7 +50,6 @@ describe AttributeAsserter do
           service_provider: service_provider,
           authn_request: ial2_authn_request,
           decrypted_pii: decrypted_pii,
-          user_session: user_session,
         )
       end
 
@@ -147,42 +145,6 @@ describe AttributeAsserter do
           expect(user.asserted_attributes.keys).to eq(%i[uuid email verified_at])
         end
       end
-
-      context 'x509 attributes included in the SP attribute bundle' do
-        before do
-          allow(service_provider.metadata).to receive(:[]).with(:attribute_bundle).
-            and_return(%w[email x509_subject x509_presented])
-          subject.build
-        end
-
-        context 'user did not present piv/cac' do
-          let(:user_session) do
-            {
-              decrypted_x509: nil,
-            }
-          end
-
-          it 'does not include x509_subject and x509_presented' do
-            expect(user.asserted_attributes.keys).to eq %i[uuid email verified_at]
-          end
-        end
-
-        context 'user presented piv/cac' do
-          let(:user_session) do
-            {
-              decrypted_x509: {
-                subject: 'x509 subject',
-                presented: true,
-              }.to_json,
-            }
-          end
-
-          it 'includes x509_subject and x509_presented' do
-            expected = %i[uuid email verified_at x509_subject x509_presented]
-            expect(user.asserted_attributes.keys).to eq expected
-          end
-        end
-      end
     end
 
     context 'verified user and IAL1 request' do
@@ -193,7 +155,6 @@ describe AttributeAsserter do
           service_provider: service_provider,
           authn_request: ial1_authn_request,
           decrypted_pii: decrypted_pii,
-          user_session: user_session,
         )
       end
 
@@ -295,42 +256,6 @@ describe AttributeAsserter do
           expect(user.asserted_attributes.keys).to eq(%i[uuid email])
         end
       end
-
-      context 'x509 attributes included in the SP attribute bundle' do
-        before do
-          allow(service_provider.metadata).to receive(:[]).with(:attribute_bundle).
-            and_return(%w[email x509_subject x509_presented])
-          subject.build
-        end
-
-        context 'user did not present piv/cac' do
-          let(:user_session) do
-            {
-              decrypted_x509: nil,
-            }
-          end
-
-          it 'does not include x509_subject and x509_presented' do
-            expect(user.asserted_attributes.keys).to eq %i[uuid email]
-          end
-        end
-
-        context 'user presented piv/cac' do
-          let(:user_session) do
-            {
-              decrypted_x509: {
-                subject: 'x509 subject',
-                presented: true,
-              }.to_json,
-            }
-          end
-
-          it 'includes x509_subject and x509_presented' do
-            expected = %i[uuid email x509_subject x509_presented]
-            expect(user.asserted_attributes.keys).to eq expected
-          end
-        end
-      end
     end
 
     context 'verified user and IAL1 AAL3 request' do
@@ -343,7 +268,6 @@ describe AttributeAsserter do
             service_provider: service_provider,
             authn_request: ial1_authn_request,
             decrypted_pii: decrypted_pii,
-            user_session: user_session,
           )
         end
 
@@ -372,7 +296,6 @@ describe AttributeAsserter do
             service_provider: service_provider,
             authn_request: ial1_aal3_authn_request,
             decrypted_pii: decrypted_pii,
-            user_session: user_session,
           )
         end
 
@@ -430,7 +353,6 @@ describe AttributeAsserter do
           service_provider: service_provider,
           authn_request: ial2_authn_request,
           decrypted_pii: decrypted_pii,
-          user_session: user_session,
         )
       end
 
@@ -445,7 +367,6 @@ describe AttributeAsserter do
           service_provider: service_provider,
           authn_request: ial1_authn_request,
           decrypted_pii: decrypted_pii,
-          user_session: user_session,
         )
       end
 

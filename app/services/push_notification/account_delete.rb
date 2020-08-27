@@ -48,6 +48,7 @@ module PushNotification
 
     # Payload format per
     # https://openid.net/specs/openid-risc-event-types-1_0-ID1.html#account-purged
+    # rubocop:disable Metrics/MethodLength
     def build_payload(issuer, push_notification_url, uuid)
       iat = Time.zone.now.to_i
       {
@@ -67,6 +68,7 @@ module PushNotification
         },
       }
     end
+    # rubocop:enable Metrics/MethodLength
 
     def post_to_push_notification_url(push_to_url, payload)
       adapter = faraday_adapter(push_to_url)

@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ClassLength
 module SignUp
   class CompletionsController < ApplicationController
     include SecureHeadersConcern
@@ -148,3 +149,4 @@ module SignUp
     end
   end
 end
+# rubocop:enable Metrics/ClassLength

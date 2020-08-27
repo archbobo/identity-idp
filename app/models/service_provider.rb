@@ -2,9 +2,7 @@ require 'fingerprinter'
 require 'identity_validations'
 
 class ServiceProvider < ApplicationRecord
-  self.ignored_columns = %w[deal_id agency]
-
-  belongs_to :agency
+  self.ignored_columns = %w[deal_id]
 
   # Do not define validations in this model.
   # See https://github.com/18F/identity_validations

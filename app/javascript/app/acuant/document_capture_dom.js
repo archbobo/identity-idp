@@ -47,9 +47,7 @@ const showFallbackForm = () => {
 };
 
 export const showAcuantSdkContainer = (container) => {
-  if (documentCaptureFallbackModeEnabled()) {
-    return;
-  }
+  if (documentCaptureFallbackModeEnabled()) return;
 
   hideAcuantSdkContainers();
 

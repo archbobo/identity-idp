@@ -13,7 +13,6 @@ describe Idv::ImageUploadForm do
         expect(result).to be_kind_of(FormResponse)
         expect(result.success?).to eq(true)
         expect(result.errors).to be_empty
-        expect(result.extra).to eq(is_fallback_link: true)
       end
     end
 
@@ -24,7 +23,6 @@ describe Idv::ImageUploadForm do
         expect(result).to be_kind_of(FormResponse)
         expect(result.success?).to eq(true)
         expect(result.errors).to be_empty
-        expect(result.extra).to eq(is_fallback_link: false)
       end
     end
 

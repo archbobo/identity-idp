@@ -1,4 +1,3 @@
-# rubocop:disable Rails/UniqueValidationWithoutIndex
 class Authorization < ApplicationRecord
   belongs_to :user
   validates :user_id, :uid, :provider, presence: true
@@ -7,4 +6,3 @@ class Authorization < ApplicationRecord
   AAL2 = 2
   AAL3 = 3
 end
-# rubocop:enable Rails/UniqueValidationWithoutIndex

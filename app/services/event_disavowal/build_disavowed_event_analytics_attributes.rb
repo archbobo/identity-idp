@@ -1,5 +1,6 @@
 module EventDisavowal
   class BuildDisavowedEventAnalyticsAttributes
+    # rubocop:disable MethodLength,
     def self.call(event)
       return {} if event.blank?
 
@@ -14,5 +15,6 @@ module EventDisavowal
         disavowed_device_last_used_at: device&.last_used_at,
       }
     end
+    # rubocop:enable MethodLength
   end
 end

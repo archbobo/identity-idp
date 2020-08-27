@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# rubocop:disable Style/BracesAroundHashParameters
+
 RSpec.describe Health::JobsController do
   describe '#index' do
     subject(:action) { get :index }
@@ -43,3 +45,5 @@ RSpec.describe Health::JobsController do
     end
   end
 end
+
+# rubocop:enable Style/BracesAroundHashParameters

@@ -23,7 +23,7 @@ RSpec.describe Risc::SecurityEventsController do
         iat: Time.zone.now.to_i,
         aud: api_risc_security_events_url,
         events: {
-          SecurityEvent::AUTHORIZATION_FRAUD_DETECTED => {
+          SecurityEvent::CREDENTIAL_CHANGE_REQUIRED => {
             subject: {
               subject_type: 'iss_sub',
               iss: root_url,

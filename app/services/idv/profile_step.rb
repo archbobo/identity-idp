@@ -36,11 +36,7 @@ module Idv
     end
 
     def applicant
-      step_params.merge(uuid: idv_session.current_user.uuid, uuid_prefix: uuid_prefix)
-    end
-
-    def uuid_prefix
-      ServiceProvider.from_issuer(idv_session.issuer).app_id
+      step_params.merge(uuid: idv_session.current_user.uuid)
     end
 
     def idv_throttle_params

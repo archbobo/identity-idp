@@ -5,12 +5,11 @@ describe ServiceProviderController do
 
   describe '#update' do
     let(:dashboard_sp_issuer) { 'some-dashboard-service-provider' }
-    let(:agency) { create(:agency) }
     let(:dashboard_service_providers) do
       [
         {
           issuer: dashboard_sp_issuer,
-          agency_id: agency.id,
+          agency: 'a service provider',
           friendly_name: 'a friendly service provider',
           description: 'user friendly login.gov dashboard',
           acs_url: 'http://sp.example.org/saml/login',

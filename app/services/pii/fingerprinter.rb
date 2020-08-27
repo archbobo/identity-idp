@@ -5,7 +5,7 @@ module Pii
     end
 
     def self.fingerprint(text, key = current_key)
-      digest = OpenSSL::Digest.new('SHA256')
+      digest = OpenSSL::Digest::SHA256.new
       OpenSSL::HMAC.hexdigest(digest, key, text)
     end
 

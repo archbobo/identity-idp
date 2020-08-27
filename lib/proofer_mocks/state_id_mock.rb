@@ -10,8 +10,6 @@ class StateIdMock < Proofer::Base
 
   required_attributes :state_id_number, :state_id_type, :state_id_jurisdiction
 
-  optional_attributes :uuid, :uuid_prefix
-
   stage :state_id
 
   proof do |applicant, result|

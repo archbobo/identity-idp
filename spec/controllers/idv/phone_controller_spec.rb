@@ -139,7 +139,6 @@ describe Idv::PhoneController do
             first_name: 'Some',
             last_name: 'One',
             phone: normalized_phone,
-            uuid_prefix: nil,
           }.with_indifferent_access
 
           expect(subject.idv_session.applicant).to eq expected_applicant

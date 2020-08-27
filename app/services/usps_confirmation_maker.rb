@@ -22,6 +22,7 @@ class UspsConfirmationMaker
 
   attr_reader :pii, :issuer, :profile
 
+  # rubocop:disable AbcSize, MethodLength
   # This method is single statement spread across many lines for readability
   def attributes
     {
@@ -36,6 +37,7 @@ class UspsConfirmationMaker
       issuer: issuer,
     }
   end
+  # rubocop:enable AbcSize, MethodLength
 
   def generate_otp
     # Crockford encoding is 5 bits per character

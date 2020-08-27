@@ -5,6 +5,8 @@ class BinarySearchSortedHashFile
     @file_name = file_name
   end
 
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   def call(password)
     key = Digest::SHA1.hexdigest(password).upcase
     min = 0
@@ -27,4 +29,6 @@ class BinarySearchSortedHashFile
       end
     end
   end
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 end

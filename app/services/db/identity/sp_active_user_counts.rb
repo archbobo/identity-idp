@@ -1,6 +1,7 @@
 module Db
   module Identity
     class SpActiveUserCounts
+      # rubocop:disable Metrics/MethodLength
       def self.call(start)
         params = {
           start: ActiveRecord::Base.connection.quote(start),
@@ -33,6 +34,7 @@ module Db
         SQL
         ActiveRecord::Base.connection.execute(sql)
       end
+      # rubocop:enable Metrics/MethodLength
     end
   end
 end

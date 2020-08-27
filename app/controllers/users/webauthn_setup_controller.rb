@@ -1,4 +1,5 @@
 module Users
+  # rubocop:disable Metrics/ClassLength
   class WebauthnSetupController < ApplicationController
     include MfaSetupConcern
     include RememberDeviceConcern
@@ -122,4 +123,5 @@ module Users
       TwoFactorAuthentication::PersonalKeyPolicy.new(current_user).configured?
     end
   end
+  # rubocop:enable Metrics/ClassLength
 end

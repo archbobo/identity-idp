@@ -46,15 +46,13 @@ class UpdateUser
   end
 
   def made_default_at_date
-    if attributes[:otp_make_default_number].to_s == 'true'
-      Time.zone.now
-    else
-      current_made_default_at
-    end
+    return current_made_default_at if attributes[:otp_make_default_number].blank?
+    Time.zone.now
   end
 
   def current_made_default_at
     phone_configuration.made_default_at if attributes[:phone_id].present?
+    nil
   end
 
   def phone_configuration

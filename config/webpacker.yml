@@ -46,7 +46,7 @@ development:
     headers:
       'Access-Control-Allow-Origin': '*'
     watch_options:
-      ignored: /node_modules\/(?!@18f\/identity-)/
+      ignored: /node_modules/
 
 
 test:

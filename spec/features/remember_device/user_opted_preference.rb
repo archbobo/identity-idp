@@ -1,5 +1,5 @@
 require 'rails_helper'
-# rubocop:disable Layout/LineLength
+# rubocop:disable Metrics/LineLength
 
 describe 'Unchecking remember device' do
   describe '2fa setup' do
@@ -155,4 +155,4 @@ describe 'Unchecking remember device' do
     end
   end
 end
-# rubocop:enable Layout/LineLength
+# rubocop:enable Metrics/LineLength

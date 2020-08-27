@@ -9,10 +9,6 @@ describe ServiceProviderUpdater do
   let(:openid_connect_issuer) { 'sp:test:foo:bar' }
   let(:openid_connect_redirect_uris) { %w[http://localhost:1234 my-app://result] }
 
-  let(:agency_1) { create(:agency) }
-  let(:agency_2) { create(:agency) }
-  let(:agency_3) { create(:agency) }
-
   # rubocop:disable Style/TrailingCommaInHashLiteral
   let(:friendly_sp) do
     {
@@ -20,7 +16,7 @@ describe ServiceProviderUpdater do
       created_at: '2010-01-01 00:00:00'.to_datetime,
       updated_at: '2010-01-01 00:00:00'.to_datetime,
       issuer: dashboard_sp_issuer,
-      agency_id: agency_1.id,
+      agency: 'a service provider',
       friendly_name: 'a friendly service provider',
       description: 'user friendly login.gov dashboard',
       acs_url: 'http://sp.example.org/saml/login',
@@ -41,7 +37,7 @@ describe ServiceProviderUpdater do
       id: 'small number',
       updated_at: '2010-01-01 00:00:00',
       issuer: inactive_dashboard_sp_issuer,
-      agency_id: agency_2.id,
+      agency: 'an old service provider',
       friendly_name: 'an old, stale service provider',
       description: 'forget about me',
       acs_url: 'http://oldsp.example.org/saml/login',
@@ -55,7 +51,7 @@ describe ServiceProviderUpdater do
     {
       issuer: 'http://localhost:3000',
       friendly_name: 'trying to override a test SP',
-      agency_id: agency_3.id,
+      agency: 'trying to override a test SP',
       acs_url: 'http://nasty-override.example.org/saml/login',
       active: true,
     }
@@ -64,7 +60,7 @@ describe ServiceProviderUpdater do
     {
       issuer: openid_connect_issuer,
       friendly_name: 'a service provider',
-      agency_id: agency_1.id,
+      agency: 'a service provider',
       redirect_uris: openid_connect_redirect_uris,
       active: true,
     }
@@ -94,7 +90,7 @@ describe ServiceProviderUpdater do
 
         sp = ServiceProvider.from_issuer(dashboard_sp_issuer)
 
-        expect(sp.agency).to eq agency_1
+        expect(sp.agency).to eq friendly_sp[:agency]
         expect(sp.ssl_cert).to be_a OpenSSL::X509::Certificate
         expect(sp.active?).to eq true
         expect(sp.id).to_not eq 0
@@ -118,7 +114,7 @@ describe ServiceProviderUpdater do
 
         sp = ServiceProvider.from_issuer(dashboard_sp_issuer)
 
-        expect(sp.agency).to eq agency_1
+        expect(sp.agency).to eq friendly_sp[:agency]
         expect(sp.ssl_cert).to be_a OpenSSL::X509::Certificate
         expect(sp.active?).to eq true
         expect(sp.id).to eq old_id
@@ -185,7 +181,7 @@ describe ServiceProviderUpdater do
             created_at: '2010-01-01 00:00:00'.to_datetime,
             updated_at: '2010-01-01 00:00:00'.to_datetime,
             issuer: dashboard_sp_issuer,
-            agency_id: agency_1.id,
+            agency: 'a service provider',
             friendly_name: 'a friendly service provider',
             description: 'user friendly login.gov dashboard',
             acs_url: 'http://sp.example.org/saml/login',

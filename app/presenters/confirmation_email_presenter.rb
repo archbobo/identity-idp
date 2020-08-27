@@ -4,7 +4,7 @@ class ConfirmationEmailPresenter
     @view = view
   end
 
-  def first_sentence
+  def first_sentence # rubocop:disable MethodLength
     if user.confirmed_at.present?
       I18n.t(
         'user_mailer.email_confirmation_instructions.first_sentence.confirmed',

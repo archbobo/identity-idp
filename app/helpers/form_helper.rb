@@ -1,4 +1,5 @@
 module FormHelper
+  # rubocop:disable MethodLength
   # rubocop:disable Style/WordArray
   # This method is single statement spread across many lines for readability
   def us_states_territories
@@ -65,6 +66,7 @@ module FormHelper
       ['Wyoming', 'WY'],
     ]
   end
+  # rubocop:enable MethodLength
   # rubocop:enable Style/WordArray
 
   def international_phone_codes

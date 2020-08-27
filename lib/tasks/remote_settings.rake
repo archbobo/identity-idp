@@ -22,9 +22,9 @@ namespace :remote_settings do
   end
 end
 
-# rubocop:disable Layout/LineLength
+# rubocop:disable Metrics/LineLength
 # example invocations:
 # rake "remote_settings:update[agencies.yml,https://raw.githubusercontent.com/18F/identity-idp/master/config/agencies.yml]"
 # rake "remote_settings:update[agencies.yml,https://login.gov/assets/idp/config/agencies.yml"
 # rake "remote_settings:update[service_providers.yml,https://raw.githubusercontent.com/18F/identity-idp/master/config/service_providers.yml]"
-# rubocop:enable Layout/LineLength
+# rubocop:enable Metrics/LineLength

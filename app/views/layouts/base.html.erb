@@ -23,6 +23,7 @@
     <%= APP_NAME %><%= raw(" - #{yield(:title)}") if content_for?(:title) %>
   </title>
 
+  <%= stylesheet_link_tag 'basscss', media: 'all' %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <!--[if IE 8]>
   <%= javascript_include_tag 'es5-shim.min' %>

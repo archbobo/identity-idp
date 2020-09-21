@@ -23,6 +23,7 @@ module Flow
 
     def update
       step = current_step
+      raise 'haha'
       result = flow.handle(step)
       analytics.track_event(analytics_submitted, result.to_h.merge(step: step)) if @analytics_id
       register_update_step(step, result)

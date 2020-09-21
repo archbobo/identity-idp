@@ -65,6 +65,13 @@ GIT
       i18n
       twilio-ruby
 
+GIT
+  remote: https://github.com/mitchellhenke/figaro.git
+  revision: a8f017a7df3946e4512e81a765e58757b07872b1
+  specs:
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -272,8 +279,6 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
-    figaro (1.1.1)
-      thor (~> 0.14)
     formatador (0.2.5)
     foundation_emails (2.2.1.0)
     geocoder (1.6.3)
@@ -615,7 +620,7 @@ GEM
     temple (0.8.2)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
-    thor (0.20.3)
+    thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
     timecop (0.9.1)
@@ -719,7 +724,7 @@ DEPENDENCIES
   faker
   faraday
   fasterer
-  figaro
+  figaro!
   foundation_emails
   gibberish
   gmail

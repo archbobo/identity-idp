@@ -23,7 +23,7 @@ module Flow
 
     def update
       step = current_step
-      raise 'haha'
+      raise 'haha' if rand > 0.2
       result = flow.handle(step)
       analytics.track_event(analytics_submitted, result.to_h.merge(step: step)) if @analytics_id
       register_update_step(step, result)

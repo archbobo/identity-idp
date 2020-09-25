@@ -18,12 +18,13 @@ module Flow
       analytics.track_event(analytics_visited, step: step) if @analytics_id
       Funnel::DocAuth::RegisterStep.new(user_id, issuer).call(step, :view, true)
       register_campaign
+      raise 'haha' if rand > 0.5
       render_step(step, flow.flow_session)
     end
 
     def update
       step = current_step
-      raise 'haha' if rand > 0.2
+      raise 'haha' if rand > 0.3
       result = flow.handle(step)
       analytics.track_event(analytics_submitted, result.to_h.merge(step: step)) if @analytics_id
       register_update_step(step, result)

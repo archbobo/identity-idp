@@ -8,7 +8,7 @@ describe 'OpenID Connect' do
   it 'it sets the sp_issuer cookie' do
     visit_idp_from_ial1_oidc_sp
 
-    cookie = cookies.filter { |c| c.name == 'sp_issuer' }.first.value
+    cookie = cookies.find { |c| c.name == 'sp_issuer' }
     expect(cookie).to eq(OidcAuthHelper::OIDC_ISSUER)
   end
 

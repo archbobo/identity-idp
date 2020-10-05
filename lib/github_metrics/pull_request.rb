@@ -37,9 +37,9 @@ module GithubMetrics
       events = self.class.github_client.issue_events(
         '18f/identity-idp', number, accept: 'application/vnd.github.mockingbird-preview'
       )
-      events.select do |item|
+      events.find do |item|
         item.event == 'ready_for_review'
-      end.first&.created_at || created_at
+      end&.created_at || created_at
     end
 
     def done_at_or_current_date

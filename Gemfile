@@ -78,7 +78,6 @@ group :development do
   gem 'brakeman', require: false
   gem 'bummr', require: false
   gem 'derailed', '>= 0.1.0'
-  gem 'fasterer', require: false
   gem 'guard-rspec', require: false
   gem 'irb'
   gem 'octokit'
@@ -97,6 +96,7 @@ group :development, :test do
   gem 'puma'
   gem 'rspec-rails', '~> 3.9', '>= 3.9.1'
   gem 'rubocop', '~> 0.91.0', require: false
+  gem 'rubocop-performance', '~> 1.8.1', require: false
   gem 'rubocop-rails', '>= 2.5.2', require: false
   gem 'slim_lint'
 end
